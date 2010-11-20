@@ -1,0 +1,18 @@
+Purpose:    This package provides an R wrapper to the infochimps.com APIs.
+
+            For more information on the these APIs see http://api.infochimps.com/
+            
+            NOTE: This package is still awaiting CRAN approval
+
+Contact:    Drew Conway
+Email:      drew.conway@nyu.edu
+Date:       2010-11-20
+
+Install:    To install this package from source download the file infochimps_0.1.tar.gz
+            and run the following command for the R console:
+            
+            > install.packages("infochimps_0.1.tar.gz", repos=NULL, type="source")
+
+Copyright (c) 2010, under the Simplified BSD License.
+For more information on FreeBSD see: http://www.opensource.org/licenses/bsd-license.php
+All rights reserved.
