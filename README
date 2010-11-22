@@ -6,10 +6,9 @@ Contact:    Drew Conway
 Email:      drew.conway@nyu.edu
 Date:       2010-11-20
 
-Install:    To install this package from source download the file infochimps_0.1.tar.gz
-            and run the following command from the R console:
+Install:    To install this package run the following command from the R console:
             
-            > install.packages("infochimps_0.1.tar.gz", repos=NULL, type="source")
+            > install.packages("infochimps", dependencies=TRUE)
             
             Or, to install binaries see the official CRAN listing:
             
