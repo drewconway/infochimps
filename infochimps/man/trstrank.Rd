@@ -54,10 +54,10 @@ trstrank("drewconway",my.infochimps)
 ## The function is currently defined as
 function(screen.name,session,user.id=NA) {
     if(is.na(user.id)) {
-        trstrank.url<-paste(base.url,"trstrank.json?screen_name=",screen.name,"&apikey=",session$api.key,sep="")
+        trstrank.url<-paste(session$base.url,"trstrank.json?screen_name=",screen.name,"&apikey=",session$api.key,sep="")
     }
     else{
-        trstrank.url<-paste(base.url,"trstrank.json?user_id=",user.id,"&apikey=",session$api.key,sep="")
+        trstrank.url<-paste(session$base.url,"trstrank.json?user_id=",user.id,"&apikey=",session$api.key,sep="")
     }
     trstrank.get<-getURL(trstrank.url)
     trstrank.data<-fromJSON(trstrank.get)

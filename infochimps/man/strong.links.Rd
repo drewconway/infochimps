@@ -56,10 +56,10 @@ head(drew.links)
 ## The function is currently defined as
 function(screen.name,session,user.id=NA) { 
     if(is.na(user.id)) {
-        strong.url<-paste(base.url,"strong_links.json?screen_name=",screen.name,"&apikey=",session$api.key,sep="")
+        strong.url<-paste(session$base.url,"strong_links.json?screen_name=",screen.name,"&apikey=",session$api.key,sep="")
     }
     else{
-        strong.url<-paste(base.url,"strong_links.json?user_id=",user.id,"&apikey=",session$api.key,sep="")
+        strong.url<-paste(session$base.url,"strong_links.json?user_id=",user.id,"&apikey=",session$api.key,sep="")
     }
     strong.get<-getURL(strong.url)
     strong.data<-fromJSON(strong.get)

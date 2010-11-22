@@ -46,7 +46,7 @@ nyu<-ip.geo("128.122.79.165",my.infochimps)
 
 ## The function is currently defined as
 function(ip.address,session) {   
-    geo.url<-paste(de.url,"geo.json?ip=",ip.address,"&apikey=",session$api.key,sep="")
+    geo.url<-paste(session$de.url,"geo.json?ip=",ip.address,"&apikey=",session$api.key,sep="")
     geo.get<-getURL(geo.url)
     geo.data<-fromJSON(geo.get)
     if(is.null(geo.data$error)) {

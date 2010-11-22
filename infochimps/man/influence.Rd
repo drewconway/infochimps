@@ -50,10 +50,10 @@ drew<-influence("drewconway",my.infochimps)
 ## The function is currently defined as
 function(screen.name,session,user.id=NA) {
     if(is.na(user.id)) {
-        influence.url<-paste(base.url,"influence.json?screen_name=",screen.name,"&apikey=",session$api.key,sep="")
+        influence.url<-paste(session$base.url,"influence.json?screen_name=",screen.name,"&apikey=",session$api.key,sep="")
     }
     else{
-        influence.url<-paste(base.url,"influence.json?user_id=",user.id,"&apikey=",session$api.key,sep="")
+        influence.url<-paste(session$base.url,"influence.json?user_id=",user.id,"&apikey=",session$api.key,sep="")
     }
     influence.get<-getURL(influence.url)
     influence.data<-fromJSON(influence.get)

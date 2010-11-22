@@ -52,7 +52,7 @@ word.stats("infochimps",my.infochimps)
 
 ## The function is currently defined as
 function(tok,session) {
-    word.url<-paste(base.url,"word_stats.json?tok=",tok,"&apikey=",session$api.key,sep="")
+    word.url<-paste(session$base.url,"word_stats.json?tok=",tok,"&apikey=",session$api.key,sep="")
     word.get<-getURL(word.url)
     word.data<-fromJSON(word.get)
     # Simple error checking

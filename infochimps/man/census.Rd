@@ -46,7 +46,7 @@ nyu<-census("128.122.79.165",my.infochimps)
 
 ## The function is currently defined as
 function(ip.address,session) {
-    census.url<-paste(ip.url,"combined.json?ip=",ip.address,"&apikey=",session$api.key,sep="")
+    census.url<-paste(session$ip.url,"combined.json?ip=",ip.address,"&apikey=",session$api.key,sep="")
     census.get<-getURL(census.url)
     census.data<-fromJSON(census.get)
     if(is.null(census.data$error)) {

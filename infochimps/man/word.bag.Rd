@@ -56,10 +56,10 @@ hilary<-word.bag("hmason",my.infochimps)
 ## The function is currently defined as
 function(screen.name,session,user.id=NA) {
     if(is.na(user.id)) {
-        wordbag.url<-paste(base.url,"wordbag.json?screen_name=",screen.name,"&apikey=",session$api.key,sep="")
+        wordbag.url<-paste(session$base.url,"wordbag.json?screen_name=",screen.name,"&apikey=",session$api.key,sep="")
     }
     else{
-        wordbag.url<-paste(base.url,"wordbag.json?user_id=",user.id,"&apikey=",session$api.key,sep="")
+        wordbag.url<-paste(session$base.url,"wordbag.json?user_id=",user.id,"&apikey=",session$api.key,sep="")
     }
     wordbag.get<-getURL(wordbag.url)
     wordbag.data<-fromJSON(wordbag.get)

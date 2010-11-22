@@ -65,18 +65,18 @@ head(jd.tweets)
 function(screen.name.a,screen.name.b,session,user.id.a=NA,user.id.b=NA) {
     # Determine the form of the API request
     if(is.na(user.id.a) & is.na(user.id.a)) {
-        conversation.url<-paste(base.url,"conversation.json?user_a_sn=",screen.name.a,"&user_b_sn=",screen.name.b,"&apikey=",session$api.key,sep="")
+        conversation.url<-paste(session$base.url,"conversation.json?user_a_sn=",screen.name.a,"&user_b_sn=",screen.name.b,"&apikey=",session$api.key,sep="")
     }
     else {
         if(is.na(user.id.a)==FALSE & is.na(user.id.a)==FALSE) {
-            conversation.url<-paste(base.url,"conversation.json?user_a_id=",user.id.a,"&user_b_id=",user.id.b,"&apikey=",session$api.key,sep="")
+            conversation.url<-paste(session$base.url,"conversation.json?user_a_id=",user.id.a,"&user_b_id=",user.id.b,"&apikey=",session$api.key,sep="")
         }
         else {
             if(is.na(user.id.na)) {
-                conversation.url<-paste(base.url,"conversation.json?user_a_sn=",screen.name.a,"&user_b_id=",user.id.b,"&apikey=",session$api.key,sep="")
+                conversation.url<-paste(session$base.url,"conversation.json?user_a_sn=",screen.name.a,"&user_b_id=",user.id.b,"&apikey=",session$api.key,sep="")
             }
             else {
-                conversation.url<-paste(base.url,"conversation.json?user_a_id=",user.id.a,"&user_b_sn=",screen.name.b,"&apikey=",session$api.key,sep="")
+                conversation.url<-paste(session$base.url,"conversation.json?user_a_id=",user.id.a,"&user_b_sn=",screen.name.b,"&apikey=",session$api.key,sep="")
             }
         }
     }

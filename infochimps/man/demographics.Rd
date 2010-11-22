@@ -46,7 +46,7 @@ nyu<-demographics("128.122.79.165",my.infochimps)
 
 ## The function is currently defined as
 function(ip.address,session) {
-    demographics.url<-paste(de.url,"demographics.json?ip=",ip.address,"&apikey=",session$api.key,sep="")
+    demographics.url<-paste(session$de.url,"demographics.json?ip=",ip.address,"&apikey=",session$api.key,sep="")
     demographics.get<-getURL(demographics.url)
     demographics.data<-fromJSON(demographics.get)
     if(is.null(demographics.data$error)) {

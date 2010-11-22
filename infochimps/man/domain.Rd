@@ -51,7 +51,7 @@ nyu<-domain("128.122.79.165",my.infochimps)
 
 ## The function is currently defined as
 function(ip.address,session) {
-    domain.url<-paste(de.url,"domain.json?ip=",ip.address,"&apikey=",session$api.key,sep="")
+    domain.url<-paste(session$de.url,"domain.json?ip=",ip.address,"&apikey=",session$api.key,sep="")
     domain.get<-getURL(domain.url)
     domain.data<-fromJSON(domain.get)
     if(is.null(domain.data$error)) {
