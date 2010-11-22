@@ -11,8 +11,8 @@ This package provides functions to access all of the APIs currently available in
 \tabular{ll}{
 Package: \tab infochimps\cr
 Type: \tab Package\cr
-Version: \tab 0.1.1\cr
-Date: \tab 2010-11-20\cr
+Version: \tab 0.1.2\cr
+Date: \tab 2010-11-22\cr
 License: \tab BSD\cr
 LazyLoad: \tab yes\cr
 }
