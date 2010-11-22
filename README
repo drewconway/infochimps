@@ -11,7 +11,7 @@ Install:    To install this package from source download the file infochimps_0.1
             
             > install.packages("infochimps_0.1.tar.gz", repos=NULL, type="source")
             
-            Or, to install binaries see the official CRAN lisitng:
+            Or, to install binaries see the official CRAN listing:
             
             http://cran.r-project.org/web/packages/infochimps/index.html
 
