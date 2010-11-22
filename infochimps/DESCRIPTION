@@ -1,11 +1,11 @@
 Package: infochimps
 Type: Package
 Title: An R wrapper for the infochimps.com API services
-Version: 0.1.1
-Date: 2010-11-20
+Version: 0.1.2
+Date: 2010-11-22
 Author: Drew Conway
 Maintainer: Drew Conway <drew.conway@nyu.edu>
-Depends: RCurl, RJSONIO, methods
+Depends: RCurl, RJSONIO
 Description: This package provides functions to access all of the 
                 APIs currently available infochimps.com.  For more
                 information see http://api.infochimps.com/.

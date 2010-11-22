@@ -4,7 +4,7 @@ Purpose:    This package provides an R wrapper to the infochimps.com APIs.
 
 Contact:    Drew Conway
 Email:      drew.conway@nyu.edu
-Date:       2010-11-20
+Date:       2010-11-22
 
 Install:    To install this package run the following command from the R console:
             
