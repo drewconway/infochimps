@@ -18,7 +18,7 @@ library(ggplot2)
 library(maps)
 
 # Need to load and clean the data
-log.data<-read.delim("you.log.data.txt", sep="-", header=FALSE, as.is=TRUE)
+log.data<-read.delim("your.log.data.txt", sep="-", header=FALSE, as.is=TRUE)
 
 # Note, your log data may be formatted differently and the following data processing may not work properly
 
