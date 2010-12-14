@@ -1,0 +1,18 @@
+digraph structs {
+    subgraph cluster_0 {
+        node [shape=record];
+        struct1 [label="<f0> RCurl",color=grey, style=filled];    
+        struct2 [label="<f0> RJSONIO",color=grey, style=filled];
+        struct3 [label="<f0> API\ Key", color=green, style=filled];
+        label="Dependencies"
+    }
+    node [shape=Mrecord]
+    struct5 [label="<f0> word.stats|{rank|global_freq_ppb|global_stdev_ppb|tok}"];
+    node [shape=record];
+    struct4 [label="<f0> infochimps"];
+    
+    struct1 -> struct4
+    struct2 -> struct4
+    struct3 -> struct4
+    struct4 -> struct5:f0
+}
