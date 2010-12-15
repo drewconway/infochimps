@@ -24,7 +24,7 @@ prog.langs<-c("java","php","javascript","python","sql","perl","ruby","actionscri
     "erlang","smalltalk","scala","ocaml","forth","rexx","clojure","rstats")
     
 # Create infochimps session
-api.key<-"your.infochimps.api.key"
+api.key<-"vv5cbsDQRvWcuwAhgfiXkLHLx69"
 ic<-infochimps(api.key)
 
 # Get word stats for all languages
@@ -48,7 +48,7 @@ lang.df<-lang.df[with(lang.df, order(global_freq_ppb)),]
 lang.pop<-ggplot(lang.df, aes(xmin=(1:nrow(lang.df))-.5,xmax=(1:nrow(lang.df))+.5,ymin=0,ymax=global_freq_ppb))+
     geom_rect(aes(fill="lightblue",color="grey"))+coord_flip()+scale_x_continuous(breaks=1:nrow(lang.df),labels=lang.df$tok)+
     theme_bw()+scale_fill_manual(value=c("lightblue"="lightblue"),legend=FALSE)+scale_colour_manual(values=c("grey"="grey"),legend=FALSE)+
-    opts(title="Global Frequnecy of Computer Languages Mentioned on Twitter",panel.grid.minor=theme_blank())+
+    opts(title="Global Frequency of Computer Languages Mentioned on Twitter",panel.grid.minor=theme_blank())+
     ylab("Parts Per-Billion")
 ggsave(plot=lang.pop,filename="slides/images/lang_pop1.png",width=8,height=6)
     
@@ -56,14 +56,14 @@ lang.pop2<-ggplot(lang.df, aes(xmin=(1:nrow(lang.df))-.5,xmax=(1:nrow(lang.df))+
     geom_rect(aes(fill=common,color="grey"))+coord_flip()+scale_x_continuous(breaks=1:nrow(lang.df),labels=lang.df$tok)+
     theme_bw()+ylab("Parts Per-Billion")+scale_fill_manual(values=c("0"="lightblue","1"="red"),legend=FALSE)+
     scale_colour_manual(values=c("grey"="grey"),legend=FALSE)+
-    opts(title="Global Frequnecy of Computer Languages Mentioned on Twitter",panel.grid.minor=theme_blank())
+    opts(title="Global Frequency of Computer Languages Mentioned on Twitter",panel.grid.minor=theme_blank())
 ggsave(plot=lang.pop2,filename="slides/images/lang_pop2.png",width=8,height=6)
 
 com.langs<-subset(lang.df,common!=1)
 lang.pop3<-ggplot(com.langs, aes(xmin=(1:nrow(com.langs))-.5,xmax=(1:nrow(com.langs))+.5,ymin=0,ymax=global_freq_ppb))+
     geom_rect(aes(fill="lightblue",color="grey"))+coord_flip()+scale_x_continuous(breaks=1:nrow(com.langs),labels=com.langs$tok)+
     theme_bw()+scale_fill_manual(value=c("lightblue"="lightblue"),legend=FALSE)+scale_colour_manual(values=c("grey"="grey"),legend=FALSE)+
-    opts(title="Global Frequnecy of Computer Languages Mentioned on Twitter",panel.grid.minor=theme_blank())+
+    opts(title="Global Frequency of Computer Languages Mentioned on Twitter",panel.grid.minor=theme_blank())+
     ylab("log(Parts Per-Billion)")+scale_y_log10()
 ggsave(plot=lang.pop3,filename="slides/images/lang_pop3.png",width=8,height=6)
 
