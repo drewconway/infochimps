@@ -52,7 +52,8 @@ word.stats("infochimps",my.infochimps)
 
 ## The function is currently defined as
 function(tok,session) {
-    word.url<-paste(session$base.url,"word_stats.json?tok=",tok,"&apikey=",session$api.key,sep="")
+    tok<-tolower(gsub("[[:punct:]]","",tok))
+    word.url<-paste(session$base,"word_stats.json?tok=",tok,"&apikey=",session$api.key,sep="")
     word.get<-getURL(word.url)
     word.data<-fromJSON(word.get)
     # Simple error checking
@@ -63,7 +64,7 @@ function(tok,session) {
         warning(word.data$message[[1]])
         return(NA)
     }
-  }
+}
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.

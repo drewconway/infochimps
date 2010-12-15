@@ -1,5 +1,6 @@
 word.stats <-
 function(tok,session) {
+    tok<-tolower(gsub("[[:punct:]]","",tok))
     word.url<-paste(session$base,"word_stats.json?tok=",tok,"&apikey=",session$api.key,sep="")
     word.get<-getURL(word.url)
     word.data<-fromJSON(word.get)
