@@ -33,8 +33,10 @@ function(screen.name.a,screen.name.b,user.id.a=NA,user.id.b=NA) {
             reply.to<-sapply(1:nrow(conversations.matrix), function(x) ifelse(conversations.matrix[x,2]=="re", conversations.matrix[x,3], NA))
         }
         conversations.df<-cbind(user.id.a, user.id.b, conversations.matrix[,1], conversations.matrix[,2],reply.to)
-        conversations.df<-as.data.frame(conversations.df)
-        names(conversations.df)<-c("user.id.a","user.id.b","conversation.id","conversation.type","reply.to.id")
+        conversations.df<-as.data.frame(conversations.df,stringsAsFactors=FALSE)
+        conversation.names<-c("user.id.a","user.id.b","conversation.id","conversation.type","reply.to.id")
+        names(conversations.df)<-conversation.names
+        for(c in 1:length(conversation.names)) {conversations.df[,c]<-unlist(conversations.df[,c])}
         return(conversations.df)
     }
     else {

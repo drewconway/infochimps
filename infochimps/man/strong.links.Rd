@@ -64,8 +64,10 @@ function(screen.name,user.id=NA) {
     if(is.null(strong.data$error)){
         strong.edges<-do.call("rbind",strong.data$strong_links)
         strong.edges<-cbind(strong.data$user_id,strong.edges)
-        strong.df<-as.data.frame(strong.edges)
-        names(strong.df)<-c("user.id","strong.edge","link.weight")
+        strong.df<-as.data.frame(strong.edges, stringsAsFactors=FALSE)
+        strong.names<-c("user.id","strong.edge","link.weight")
+        names(strong.df)<-strong.names
+        for(c in 1:length(strong.names)) {strong.df[,c]<-unlist(strong.df[,c])}
         return(strong.df)
     }
     else{
