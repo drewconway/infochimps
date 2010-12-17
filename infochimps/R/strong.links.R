@@ -1,10 +1,10 @@
 strong.links <-
-function(screen.name,session,user.id=NA) {
+function(screen.name,user.id=NA) {
     if(is.na(user.id)) {
-        strong.url<-paste(session$base,"strong_links.json?screen_name=",screen.name,"&apikey=",session$api.key,sep="")
+        strong.url<-paste(.InfochimpsEnv$data$base,"strong_links.json?screen_name=",screen.name,"&apikey=",.InfochimpsEnv$data$api.key,sep="")
     }
     else{
-        strong.url<-paste(session$base,"strong_links.json?user_id=",user.id,"&apikey=",session$api.key,sep="")
+        strong.url<-paste(.InfochimpsEnv$data$base,"strong_links.json?user_id=",user.id,"&apikey=",.InfochimpsEnv$data$api.key,sep="")
     }
     strong.get<-getURL(strong.url)
     strong.data<-fromJSON(strong.get)

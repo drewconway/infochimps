@@ -8,15 +8,12 @@ IP address geo-location
 A function to return Digitial Elements IP Intelligence geo-loaction data from the infochimps.com API
 }
 \usage{
-ip.geo(ip.address, session)
+ip.geo(ip.address)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{ip.address}{
 Properly formatted IP address as character string
-}
-  \item{session}{
-Object containing session API key information, created with infochimps() function
 }
 }
 \details{
@@ -41,12 +38,12 @@ Drew Conway <drew.conway@nyu.edu>
 %% ~~objects to See Also as \code{\link{help}}, ~~~
 }
 \examples{
-my.infochimps<-infochimps("your.api.key")
-nyu<-ip.geo("128.122.79.165",my.infochimps)
+infochimps("your.api.key")
+nyu<-ip.geo("128.122.79.165")
 
 ## The function is currently defined as
-function(ip.address,session) {   
-    geo.url<-paste(session$de.url,"geo.json?ip=",ip.address,"&apikey=",session$api.key,sep="")
+function(ip.address) {
+    geo.url<-paste(.InfochimpsEnv$data$de,"geo.json?ip=",ip.address,"&apikey=",.InfochimpsEnv$data$api.key,sep="")
     geo.get<-getURL(geo.url)
     geo.data<-fromJSON(geo.get)
     if(is.null(geo.data$error)) {
@@ -56,7 +53,7 @@ function(ip.address,session) {
         warning(geo.data$message[[1]])
         return(NA)
     }
-  }
+}
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.

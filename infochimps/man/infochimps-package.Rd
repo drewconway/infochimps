@@ -29,6 +29,6 @@ http://api.infochimps.com/.
 \examples{
 library(infochimps)
 
-my.infochimps<-infochimps("your.api.key")
-drew<-influence("drewconway",my.infochimps)
+infochimps("your.api.key")
+drew<-influence("drewconway")
 }

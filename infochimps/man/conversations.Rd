@@ -8,7 +8,7 @@ Create data frame of recent conversations between two Twitter users
 A function to return the interactions between two Twitter users with infochimps.com API
 }
 \usage{
-conversations(screen.name.a, screen.name.b, session, user.id.a = NA, user.id.b = NA)
+conversations(screen.name.a, screen.name.b, user.id.a = NA, user.id.b = NA)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -17,9 +17,6 @@ The name of a Twitter user
 }
   \item{screen.name.b}{
 The name of a Twitter user
-}
-  \item{session}{
-Object containing session API key information, created with infochimps() function
 }
   \item{user.id.a}{
 a Twitter user ID
@@ -57,25 +54,25 @@ Drew Conway, <drew.conway@nyu.edu>
 %% ~~objects to See Also as \code{\link{help}}, ~~~
 }
 \examples{
-my.infochimps<-infochimps("my.api.key")
-jd.tweets<-conversations("drewconway","CMastication",my.infochimps)
+infochimps("my.api.key")
+jd.tweets<-conversations("drewconway","CMastication")
 head(jd.tweets)
 
 ## The function is currently defined as
-function(screen.name.a,screen.name.b,session,user.id.a=NA,user.id.b=NA) {
+function(screen.name.a,screen.name.b,user.id.a=NA,user.id.b=NA) {
     if(is.na(user.id.a) & is.na(user.id.a)) {
-        conversation.url<-paste(session$base,"conversation.json?user_a_sn=",screen.name.a,"&user_b_sn=",screen.name.b,"&apikey=",session$api.key,sep="")
+        conversation.url<-paste(.InfochimpsEnv$data$base,"conversation.json?user_a_sn=",screen.name.a,"&user_b_sn=",screen.name.b,"&apikey=",.InfochimpsEnv$data$api.key,sep="")
     }
     else {
         if(is.na(user.id.a)==FALSE & is.na(user.id.a)==FALSE) {
-            conversation.url<-paste(session$base,"conversation.json?user_a_id=",user.id.a,"&user_b_id=",user.id.b,"&apikey=",session$api.key,sep="")
+            conversation.url<-paste(.InfochimpsEnv$data$base,"conversation.json?user_a_id=",user.id.a,"&user_b_id=",user.id.b,"&apikey=",.InfochimpsEnv$data$api.key,sep="")
         }
         else {
             if(is.na(user.id.na)) {
-                conversation.url<-paste(session$base,"conversation.json?user_a_sn=",screen.name.a,"&user_b_id=",user.id.b,"&apikey=",session$api.key,sep="")
+                conversation.url<-paste(.InfochimpsEnv$data$base,"conversation.json?user_a_sn=",screen.name.a,"&user_b_id=",user.id.b,"&apikey=",.InfochimpsEnv$data$api.key,sep="")
             }
             else {
-                conversation.url<-paste(session$base,"conversation.json?user_a_id=",user.id.a,"&user_b_sn=",screen.name.b,"&apikey=",session$api.key,sep="")
+                conversation.url<-paste(.InfochimpsEnv$data$base,"conversation.json?user_a_id=",user.id.a,"&user_b_sn=",screen.name.b,"&apikey=",.InfochimpsEnv$data$api.key,sep="")
             }
         }
     }

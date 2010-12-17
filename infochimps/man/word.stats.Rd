@@ -8,15 +8,12 @@ Get basic statistics associated with a given word on Twitter
 A function to return infochimps.com Word Stats data 
 }
 \usage{
-word.stats(tok, session)
+word.stats(tok)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{tok}{
 The word you are searching (character)
-}
-  \item{session}{
-Object containing session API key information, created with infochimps() function
 }
 }
 \details{
@@ -47,13 +44,13 @@ Drew Conway <drew.conway@nyu.edu>
 %% ~~objects to See Also as \code{\link{help}}, ~~~
 }
 \examples{
-my.infochimps<-infochimps("your.api.key")
-word.stats("infochimps",my.infochimps)
+infochimps("your.api.key")
+word.stats("infochimps")
 
 ## The function is currently defined as
-function(tok,session) {
+function(tok) {
     tok<-tolower(gsub("[[:punct:]]","",tok))
-    word.url<-paste(session$base,"word_stats.json?tok=",tok,"&apikey=",session$api.key,sep="")
+    word.url<-paste(.InfochimpsEnv$data$base,"word_stats.json?tok=",tok,"&apikey=",.InfochimpsEnv$data$api.key,sep="")
     word.get<-getURL(word.url)
     word.data<-fromJSON(word.get)
     # Simple error checking

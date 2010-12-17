@@ -1,7 +1,7 @@
 word.stats <-
-function(tok,session) {
+function(tok) {
     tok<-tolower(gsub("[[:punct:]]","",tok))
-    word.url<-paste(session$base,"word_stats.json?tok=",tok,"&apikey=",session$api.key,sep="")
+    word.url<-paste(.InfochimpsEnv$data$base,"word_stats.json?tok=",tok,"&apikey=",.InfochimpsEnv$data$api.key,sep="")
     word.get<-getURL(word.url)
     word.data<-fromJSON(word.get)
     # Simple error checking

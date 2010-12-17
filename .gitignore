@@ -1,0 +1,15 @@
+infochimps.Rcheck/*
+.Rhistory
+examples/data
+examples/blogpost.mp4
+examples/images
+examples/lang_rank.R
+examples/language_ranks.csv
+examples/prog_langs.zip
+examples/slides/*.aux
+examples/slides/*.log
+examples/slides/*.out
+examples/slides/*.pdfsync
+examples/slides/*.snm
+examples/slides/*.toc
+examples/slides/*.vrb

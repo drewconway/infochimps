@@ -1,10 +1,10 @@
 trstrank <-
-function(screen.name,session,user.id=NA) {
+function(screen.name,user.id=NA) {
     if(is.na(user.id)) {
-        trstrank.url<-paste(session$base,"trstrank.json?screen_name=",screen.name,"&apikey=",session$api.key,sep="")
+        trstrank.url<-paste(.InfochimpsEnv$data$base,"trstrank.json?screen_name=",screen.name,"&apikey=",.InfochimpsEnv$data$api.key,sep="")
     }
     else{
-        trstrank.url<-paste(session$base,"trstrank.json?user_id=",user.id,"&apikey=",session$api.key,sep="")
+        trstrank.url<-paste(.InfochimpsEnv$data$base,"trstrank.json?user_id=",user.id,"&apikey=",.InfochimpsEnv$data$api.key,sep="")
     }
     trstrank.get<-getURL(trstrank.url)
     trstrank.data<-fromJSON(trstrank.get)

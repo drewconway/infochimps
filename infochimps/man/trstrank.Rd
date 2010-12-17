@@ -8,15 +8,12 @@ Get the trstrank score for a given Twitter user
 A function to return infochimps.com trstrank score for a Twitter user
 }
 \usage{
-trstrank(screen.name, session, user.id = NA)
+trstrank(screen.name, user.id = NA)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{screen.name}{
 The name of a Twitter user
-}
-  \item{session}{
-Object containing session API key information, created with infochimps() function
 }
   \item{user.id}{
 a Twitter user ID
@@ -48,16 +45,16 @@ Drew Conway <drew.conway@nyu.edu>
 %% ~~objects to See Also as \code{\link{help}}, ~~~
 }
 \examples{
-my.infochimps<-infochimps("your.api.key")
-trstrank("drewconway",my.infochimps)
+infochimps("your.api.key")
+trstrank("drewconway")
 
 ## The function is currently defined as
-function(screen.name,session,user.id=NA) {
+function(screen.name,user.id=NA) {
     if(is.na(user.id)) {
-        trstrank.url<-paste(session$base.url,"trstrank.json?screen_name=",screen.name,"&apikey=",session$api.key,sep="")
+        trstrank.url<-paste(.InfochimpsEnv$data$base,"trstrank.json?screen_name=",screen.name,"&apikey=",.InfochimpsEnv$data$api.key,sep="")
     }
     else{
-        trstrank.url<-paste(session$base.url,"trstrank.json?user_id=",user.id,"&apikey=",session$api.key,sep="")
+        trstrank.url<-paste(.InfochimpsEnv$data$base,"trstrank.json?user_id=",user.id,"&apikey=",.InfochimpsEnv$data$api.key,sep="")
     }
     trstrank.get<-getURL(trstrank.url)
     trstrank.data<-fromJSON(trstrank.get)
@@ -69,7 +66,7 @@ function(screen.name,session,user.id=NA) {
         warning(trstrank.data$message[[1]])
         return(NA)
     }
-  }
+}
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.

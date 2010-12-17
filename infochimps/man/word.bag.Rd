@@ -8,15 +8,12 @@ Find the words most associated with a given Twitter user
 A function to return infochimps.com Word Bag for a Twitter user
 }
 \usage{
-word.bag(screen.name, session, user.id = NA)
+word.bag(screen.name, user.id = NA)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{screen.name}{
 The name of a Twitter user
-}
-  \item{session}{
-Object containing session API key information, created with infochimps() function
 }
   \item{user.id}{
 a Twitter user ID
@@ -50,16 +47,16 @@ Drew Conway <drew.conway@nyu.edu>
 %% ~~objects to See Also as \code{\link{help}}, ~~~
 }
 \examples{
-my.infochimps<-infochimps("your.api.key")
-hilary<-word.bag("hmason",my.infochimps)
+infochimps("your.api.key")
+hilary<-word.bag("hmason")
 
 ## The function is currently defined as
-function(screen.name,session,user.id=NA) {
+function(screen.name,user.id=NA) {
     if(is.na(user.id)) {
-        wordbag.url<-paste(session$base.url,"wordbag.json?screen_name=",screen.name,"&apikey=",session$api.key,sep="")
+        wordbag.url<-paste(.InfochimpsEnv$data$base,"wordbag.json?screen_name=",screen.name,"&apikey=",.InfochimpsEnv$data$api.key,sep="")
     }
     else{
-        wordbag.url<-paste(session$base.url,"wordbag.json?user_id=",user.id,"&apikey=",session$api.key,sep="")
+        wordbag.url<-paste(.InfochimpsEnv$data$base,"wordbag.json?user_id=",user.id,"&apikey=",.InfochimpsEnv$data$api.key,sep="")
     }
     wordbag.get<-getURL(wordbag.url)
     wordbag.data<-fromJSON(wordbag.get)
@@ -75,7 +72,7 @@ function(screen.name,session,user.id=NA) {
         warning(wordbag.data$message[[1]])
         return(NA)
     }
-  }
+}
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.

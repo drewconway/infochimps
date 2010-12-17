@@ -8,15 +8,12 @@ Find all of the Strong Links of a given Twitter user
 A function to return infochimps.com Strong Links data 
 }
 \usage{
-strong.links(screen.name, session, user.id = NA)
+strong.links(screen.name, user.id = NA)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{screen.name}{
 The name of a Twitter user
-}
-  \item{session}{
-Object containing session API key information, created with infochimps() function
 }
   \item{user.id}{
 a Twitter user ID
@@ -49,17 +46,17 @@ Drew Conway <drew.conway@nyu.edu>
 %% ~~objects to See Also as \code{\link{help}}, ~~~
 }
 \examples{
-my.infochimps<-infochimps("your.api.key")
-drew.links<-strong.links("drewconway",my.infochimps)
+infochimps("your.api.key")
+drew.links<-strong.links("drewconway")
 head(drew.links)
 
 ## The function is currently defined as
-function(screen.name,session,user.id=NA) { 
+function(screen.name,user.id=NA) {
     if(is.na(user.id)) {
-        strong.url<-paste(session$base.url,"strong_links.json?screen_name=",screen.name,"&apikey=",session$api.key,sep="")
+        strong.url<-paste(.InfochimpsEnv$data$base,"strong_links.json?screen_name=",screen.name,"&apikey=",.InfochimpsEnv$data$api.key,sep="")
     }
     else{
-        strong.url<-paste(session$base.url,"strong_links.json?user_id=",user.id,"&apikey=",session$api.key,sep="")
+        strong.url<-paste(.InfochimpsEnv$data$base,"strong_links.json?user_id=",user.id,"&apikey=",.InfochimpsEnv$data$api.key,sep="")
     }
     strong.get<-getURL(strong.url)
     strong.data<-fromJSON(strong.get)
@@ -75,7 +72,7 @@ function(screen.name,session,user.id=NA) {
         warning(strong.data$message[[1]])
         return(NA)
     }
-  }
+}
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.

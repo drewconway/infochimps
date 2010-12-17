@@ -13,6 +13,8 @@ Install:    To install this package run the following command from the R console
             Or, to install binaries see the official CRAN listing:
             
             http://cran.r-project.org/web/packages/infochimps/index.html
+            
+Note to those updating from 0.1.2: In this and previous versions, users were required to pass a "session" argument to each function.  This has been removed, and replaced by the use of an R environment variable to store API data.  Users will still need to use the infochimps() function to store that API key, but will not be required to pass anything about their API key to the functions.
 
 Copyright (c) 2010, under the Simplified BSD License.
 For more information on FreeBSD see: http://www.opensource.org/licenses/bsd-license.php

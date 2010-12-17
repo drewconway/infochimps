@@ -19,9 +19,6 @@ infochimps(api.key)
 }
 \value{
 \item{api.key}{A valid infochimps.com API key}
-\item{base}{Base URL for most infochimps.com API calls}
-\item{de}{Base URL for Digital Elements API calls}
-\item{ip}{Base URL for IP address related API calls}
 }
 \references{
 To get an API key from infochimps.com see, http://api.infochimps.com/about/features-and-pricing
@@ -39,15 +36,17 @@ Drew Conway <drew.conway@nyu.edu>
 %% ~~objects to See Also as \code{\link{help}}, ~~~
 }
 \examples{
-my.infochimps<-infochimps("your.api.key")
+infochimps("your.api.key")
 
 ## The function is currently defined as
-function(api.key)
-    structure(list(api.key=api.key,
-                    base="http://api.infochimps.com/soc/net/tw/",
-                    de="http://api.infochimps.com/web/an/de/",
-                    ip="http://api.infochimps.com/web/an/ip_census/"),
-    class="infochimps")
+function(api.key) {
+    if(is.character(api.key)){
+        .InfochimpsEnv$data$api.key<-api.key   
+    }
+    else{
+        warning("API key must be a string")
+    }
+}
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.

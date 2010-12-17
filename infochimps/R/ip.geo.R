@@ -1,6 +1,6 @@
 ip.geo <-
-function(ip.address,session) {
-    geo.url<-paste(session$de,"geo.json?ip=",ip.address,"&apikey=",session$api.key,sep="")
+function(ip.address) {
+    geo.url<-paste(.InfochimpsEnv$data$de,"geo.json?ip=",ip.address,"&apikey=",.InfochimpsEnv$data$api.key,sep="")
     geo.get<-getURL(geo.url)
     geo.data<-fromJSON(geo.get)
     if(is.null(geo.data$error)) {
