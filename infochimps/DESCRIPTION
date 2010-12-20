@@ -1,7 +1,7 @@
 Package: infochimps
 Type: Package
 Title: An R wrapper for the infochimps.com API services
-Version: 0.2.1
+Version: 0.2.2
 Date: 2010-11-22
 Author: Drew Conway
 Maintainer: Drew Conway <drew.conway@nyu.edu>
