@@ -2,11 +2,14 @@
 
 For more information on the these APIs see http://api.infochimps.com/
 
+*Late update: 2011-03-22*
+
 ### Contact
 
 Drew Conway
-**Email**:      drew.conway@nyu.edu
-**Date**:       2011-22-2011
+
+- Email: drew.conway@nyu.edu
+- Web: http://www.drewconway.com
 
 ### Installation
 
