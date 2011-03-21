@@ -1,12 +1,16 @@
-Purpose:    This package provides an R wrapper to the infochimps.com APIs.
+## This package provides an R wrapper to the infochimps.com APIs.
 
-            For more information on the these APIs see http://api.infochimps.com/
+For more information on the these APIs see http://api.infochimps.com/
 
-Contact:    Drew Conway
-Email:      drew.conway@nyu.edu
-Date:       2011-22-2011
+### Contact
 
-Install:    To install this package from a CRAN repository run the following command from the R console:
+Drew Conway
+**Email**:      drew.conway@nyu.edu
+**Date**:       2011-22-2011
+
+### Installation
+
+To install this package from a CRAN repository run the following command from the R console:
             
 `> install.packages("infochimps", dependencies=TRUE)`
             
@@ -17,6 +21,8 @@ To install this package from the source code available here, download it, and se
 Or, to install binaries see the official CRAN listing:
             
 http://cran.r-project.org/web/packages/infochimps/index.html
+
+### News
             
 **Note to those updating from 0.2.2**:This version includes new function for some, but not all, of the latests APIs available on Infochimps.
 
