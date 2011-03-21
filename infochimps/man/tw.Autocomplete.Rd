@@ -1,29 +1,29 @@
-\name{ip.geo}
-\alias{ip.geo}
+\name{tw.Autocomplete}
+\alias{tw.Autocomplete}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{
-IP address geo-location
+Matches partial Twitter user names for completion.
 }
 \description{
-A function to return Digitial Elements IP Intelligence geo-loaction data from the infochimps.com API
+Uses the same type of autocomplete that the Twitter iPhone app uses. Given a twitter screen name prefix returns up to 100 possible screen name completions sorted by trstrank.
 }
 \usage{
-ip.geo(ip.address)
+tw.Autocomplete(prefix)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
-  \item{ip.address}{
-Properly formatted IP address as character string
+  \item{prefix}{
+A three-character or more prefix of a Twitter screen name
 }
 }
 \details{
 %%  ~~ If necessary, more details than the description above ~~
 }
 \value{
-list : see reference for listing of all data returned (extensive)
+Returns a character vector of all completions given search criteria.
 }
 \references{
-http://api.infochimps.com/describe/web/an/de/geo
+http://www.infochimps.com/datasets/twitter-screen-name-autocomplete
 }
 \author{
 Drew Conway <drew.conway@nyu.edu>
@@ -39,7 +39,7 @@ Drew Conway <drew.conway@nyu.edu>
 }
 \examples{
 infochimps("your.api.key")
-nyu<-ip.geo("128.122.79.165")
+tw.Autocomplete("drew")
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.

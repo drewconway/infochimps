@@ -8,7 +8,7 @@ function(screen.name.a,screen.name.b,user.id.a=NA,user.id.b=NA) {
             conversation.url<-paste(.InfochimpsEnv$data$base,"conversation.json?user_a_id=",user.id.a,"&user_b_id=",user.id.b,"&apikey=",.InfochimpsEnv$data$api.key,sep="")
         }
         else {
-            if(is.na(user.id.na)) {
+            if(is.na(user.id.a)) {
                 conversation.url<-paste(.InfochimpsEnv$data$base,"conversation.json?user_a_sn=",screen.name.a,"&user_b_id=",user.id.b,"&apikey=",.InfochimpsEnv$data$api.key,sep="")
             }
             else {

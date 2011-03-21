@@ -40,20 +40,6 @@ Drew Conway, <drew.conway@nyu.edu>
 \examples{
 infochimps("your.api.key")
 nyu<-census("128.122.79.165")
-
-## The function is currently defined as
-function(ip.address) {
-    census.url<-paste(.InfochimpsEnv$data$ip,"combined.json?ip=",ip.address,"&apikey=",.InfochimpsEnv$data$api.key,sep="")
-    census.get<-getURL(census.url)
-    census.data<-fromJSON(census.get)
-    if(is.null(census.data$error)) {
-        return(census.data)
-    }
-    else {
-        warning(census.data$message[[1]])
-        return(NA)
-    }
-}
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.

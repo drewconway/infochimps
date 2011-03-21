@@ -45,20 +45,6 @@ Drew Conway <drew.conway@nyu.edu>
 \examples{
 infochimps("your.api.key")
 nyu<-domain("128.122.79.165")
-
-## The function is currently defined as
-function(ip.address) {
-    domain.url<-paste(.InfochimpsEnv$data$de,"domain.json?ip=",ip.address,"&apikey=",.InfochimpsEnv$data$api.key,sep="")
-    domain.get<-getURL(domain.url)
-    domain.data<-fromJSON(domain.get)
-    if(is.null(domain.data$error)) {
-        return(domain.data)
-    }
-    else {
-        warning(domain.data$message[[1]])
-        return(NA)
-    }
-}
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.

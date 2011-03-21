@@ -23,7 +23,26 @@
             api.key=NULL,
             base="http://api.infochimps.com/soc/net/tw/",
             de="http://api.infochimps.com/web/an/de/",
-            ip="http://api.infochimps.com/web/an/ip_census/"
+            ip="http://api.infochimps.com/web/an/ip_census/",
+            social="http://api.infochimps.com/social/network/",
+            science="http://api.infochimps.com/science/",
+            location="http://api.infochimps.com/geo/location/",
+            encyclopedic="http://api.infochimps.com/encyclopedic/dbpedia/",
+            language="http://api.infochimps.com/language/",
+            finance="http://api.infochimps.com/economics/finance/"
             )
     }
+}
+
+clean.george <- function(json.response) {gsub("(george_api_explorer|\\(|\\))","", json.response)}
+
+jsonToDataFrame<- 
+function(json, all.names) {
+    json.vecs<-lapply(json$results, rbind)
+    col.match<-lapply(json.vecs, function(x) match(all.names, colnames(x)))
+    fixed.cols<-lapply(1:length(json.vecs), function(i) rbind(as.character(json.vecs[[i]][,col.match[[i]]])))
+    data.matrix<-do.call(rbind, fixed.cols)
+    data.df<-data.frame(data.matrix, stringsAsFactors=FALSE)
+    names(data.df)<-all.names
+    return(data.df)
 }
