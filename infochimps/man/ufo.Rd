@@ -15,7 +15,7 @@ ufo(search.string, from=0, to.df=TRUE)
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{search.string}{
-  The term to search for. You may use ‘field:term’ to search for that term in only a given field (or even ‘field.subfield:term’ if there are nested fields
+  The term to search for. You may use 'field:term' to search for that term in only a given field (or even 'field.subfield:term' if there are nested fields
   }
   \item{from}{
   Integer offset to start results at. A multiple of 100.

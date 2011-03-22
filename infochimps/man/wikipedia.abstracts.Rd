@@ -1,5 +1,5 @@
-\name{wikipedia.abstracts}
-\alias{wikipedia.abstracts}
+\name{wikipedia.abstratcs}
+\alias{wikipedia.abstratcs}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{
 Search Wikipedia articles by title, by abstract content, or by both.

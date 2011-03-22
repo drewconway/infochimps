@@ -19,11 +19,14 @@ The stock symbol
 Integer offset to start results at. A multiple of 100.
 }
   \item{begin.date}{
-The first date in the time-series, dormatted as YYYYMMdd
+The first date in the time-series, formatted as YYYYMMdd
 }
   \item{end.date}{
-The last date in the time-series, dormatted as YYYYMMdd
+The last date in the time-series, formatted as YYYYMMdd
 }
+  \item{to.df}{
+Option to return search query as a data frame.  Default is TRUE, and if FALSE returned as list keyed by data values.
+  }
 }
 \details{
 %%  ~~ If necessary, more details than the description above ~~
